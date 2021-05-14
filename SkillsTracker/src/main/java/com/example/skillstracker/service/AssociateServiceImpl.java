@@ -45,6 +45,22 @@ public class AssociateServiceImpl implements AssociateService {
     }
 
     @Override
+    public List<Associate> findByName(String associateName) {
+        return associateDao.findByName(associateName);
+    }
+
+    @Override
+    public List<Associate> findByEmailId(String associateEmailId) {
+        return associateDao.findByEmailId(associateEmailId);
+    }
+
+    @Override
+    public List<Associate> findByMobileNumber(String associateMobileNumber) {
+        return associateDao.findByMobileNumber(associateMobileNumber);
+    }
+
+
+    @Override
     public Associate deleteAssociateById(int theId) {
         Optional<Associate> associate=associateDao.findById(theId);
         if(associate.isPresent())
@@ -58,18 +74,9 @@ public class AssociateServiceImpl implements AssociateService {
         return null;
     }
 
-    @Override
-    public List<Associate> findByKeyword(String keyword) {
-        return associateDao.findByKeyword(keyword);
-    }
 
     @Override
-    public List<Skill> findBySkill_title(String keyword) {
-        return null;
-    }
-
-    @Override
-    public Associate findBySkills(String skill_title) {
-        return associateDao.findBySkills(skill_title);
+    public Associate findBySkills(String skillName) {
+        return associateDao.findBySkills(skillName);
     }
 }

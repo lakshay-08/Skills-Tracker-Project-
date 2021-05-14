@@ -11,11 +11,11 @@ export class AssociateService {
   constructor(private http: HttpClient) { }
 
   getAssociate(associateId: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${associateId}`);
+    return this.http.get(`${this.baseUrl}/associateId/${associateId}`);
   }
 
   createAssociate(associate: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, associate);
+    return this.http.post(`${this.baseUrl}/create`, associate);
   }
 
   createSkill(skill: Object): Observable<Object> {
@@ -23,15 +23,15 @@ export class AssociateService {
   }
 
   updateAssociate(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.baseUrl}/update/${id}`, value);
   }
 
   deleteAssociate(associateId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${associateId}`, { responseType: 'text' });
+    return this.http.delete(`${this.baseUrl}/delete/${associateId}`, { responseType: 'text' });
   }
 
   getAssociatesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}/get`);
   }
 
   getSkills(): Observable<any> {

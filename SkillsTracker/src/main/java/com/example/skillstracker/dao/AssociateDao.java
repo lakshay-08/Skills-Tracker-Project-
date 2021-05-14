@@ -10,8 +10,12 @@ import java.util.List;
 
 @Resource
 public interface AssociateDao extends JpaRepository<Associate, Integer> {
-    @Query(value="select * from associate_detail e where e.name like %:keyword% or e.email like %:keyword% or e.mobile_number like %:keyword%", nativeQuery = true)
-    List<Associate> findByKeyword(@Param("keyword") String keyword);
+    @Query(value="SELECT * FROM associate WHERE associate_name=:associateName", nativeQuery = true)
+    List<Associate> findByName(@Param("associateName") String associateName);
+    @Query(value="SELECT * FROM associate WHERE email_id=:associateEmailId", nativeQuery = true)
+    List<Associate> findByEmailId(@Param("associateEmailId") String associateEmailId);
+    @Query(value="SELECT * FROM associate WHERE mobile_number=:associateMobileNumber", nativeQuery = true)
+    List<Associate> findByMobileNumber(@Param("associateMobileNumber") String associateMobileNumber);
     @Query
     public Associate findBySkills(String skill_title);
 }

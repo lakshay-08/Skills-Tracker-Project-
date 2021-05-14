@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Associate} from '../associate';
-import {ActivatedRoute, Router} from '@angular/router';
-import {AssociateService} from '../associate.service';
+import { Associate } from '../associate';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AssociateService } from '../associate.service';
+import { AssociateListComponent } from '../associate-list/associate-list.component';
 
 @Component({
   selector: 'app-associate-details',
@@ -21,7 +22,7 @@ export class AssociateDetailsComponent implements OnInit {
     // @ts-ignore
     this.associate = new Associate();
 
-    this.associateId = this.route.snapshot.params.associateId;
+    this.associateId = this.route.snapshot.params['associateId'];
 
     this.associateService.getAssociate(this.associateId)
       .subscribe(data => {
