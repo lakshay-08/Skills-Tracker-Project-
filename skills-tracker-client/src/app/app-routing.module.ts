@@ -6,15 +6,18 @@ import {UpdateAssociateComponent} from './update-associate/update-associate.comp
 import {AssociateDetailsComponent} from './associate-details/associate-details.component';
 import {SkillListComponent} from './skill-list/skill-list.component';
 import {CreateSkillComponent} from './create-skill/create-skill.component';
+import {SearchByNameComponent} from './search-by-name/search-by-name.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'associates' , pathMatch: 'full'},
   { path: 'associates', component: AssociateListComponent},
   { path: 'add', component: CreateAssociateComponent},
   { path: 'update/:id', component: UpdateAssociateComponent},
-  { path: 'details/:id', component: AssociateDetailsComponent},
+  { path: 'details/:associateId', component: AssociateDetailsComponent},
   { path: 'skills', component: SkillListComponent},
   { path: 'skill', component: CreateSkillComponent},
+  { path: 'associateName/:associateName', component: SearchByNameComponent },
+  { path: 'result', component: SearchByNameComponent }
 ];
 
 @NgModule({

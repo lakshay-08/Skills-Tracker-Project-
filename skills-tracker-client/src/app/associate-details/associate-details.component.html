@@ -15,7 +15,7 @@
     <label><b>Mobile Number: </b></label> {{ associate.mobileNumber }}
   </div>
   <div>
-    <label><b>Skills: </b></label> {{ associate.skills }}
+    <label><b>Skills: </b></label><a *ngFor="let obj of associate.skills" >{{obj | json}}</a>
   </div>
 </div>
 

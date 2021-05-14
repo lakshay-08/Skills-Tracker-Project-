@@ -10,6 +10,8 @@ import { UpdateAssociateComponent } from './update-associate/update-associate.co
 import {FormsModule} from '@angular/forms';
 import { SkillListComponent } from './skill-list/skill-list.component';
 import { CreateSkillComponent } from './create-skill/create-skill.component';
+import { SearchByNameComponent } from './search-by-name/search-by-name.component';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 // @ts-ignore
 @NgModule({
@@ -20,7 +22,9 @@ import { CreateSkillComponent } from './create-skill/create-skill.component';
     AssociateListComponent,
     UpdateAssociateComponent,
     SkillListComponent,
-    CreateSkillComponent
+    CreateSkillComponent,
+    SearchByNameComponent,
+    SearchResultComponent
   ],
     imports: [
         BrowserModule,

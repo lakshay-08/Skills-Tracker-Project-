@@ -1,0 +1,11 @@
+<h3>Search associate By Name</h3>
+<div style="width: 400px;">
+  <form>
+    <div class="form-group">
+      <label for="associateName">Name</label>
+      <input type="text" class="form-control" id="associateName" required [(ngModel)]="associate.associateName" name="associateName">
+    </div>
+    <br>
+    <button (click)="associateDetailsByName(associate.associateName)" class="btn btn-primary">Search</button><br>
+  </form>
+</div>

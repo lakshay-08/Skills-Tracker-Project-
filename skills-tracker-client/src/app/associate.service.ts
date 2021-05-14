@@ -38,4 +38,8 @@ export class AssociateService {
     return this.http.get(`${this.baseUrl}/skills`);
   }
 
+  getAssociatesByName(associateName: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}/associateName/${associateName}`);
+  }
+
 }
