@@ -1,0 +1,36 @@
+<div class="panel panel-primary" >
+  <div class="panel-heading">
+    <h2>Associate List</h2>
+  </div>
+  <div class="panel-body" style="min-height: 99%; max-height: 99%;overflow-y: scroll;">
+    <table class="table table-striped" style="width:99%; border: 1px solid black">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email Id</th>
+        <th>Mobile Number</th>
+        <th style="text-align:center">Skills</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let associate of associates | async">
+        <td>{{associate.associateId}}</td>
+        <td>{{associate.associateName}}</td>
+        <td>{{associate.emailId}}</td>
+        <td>{{associate.mobileNumber}}</td>
+        <td>
+          <ul style="list-style-type:none;">
+          <li *ngFor="let obj of associate.skills" >{{obj | json}}</li>
+          </ul>
+        </td>
+        <td><button (click)="deleteAssociate(associate.associateId)" class="btn btn-danger">Delete</button>
+          <button (click)="associateDetails(associate.associateId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+          <button (click)="updateAssociate(associate.associateId)" class="btn btn-info" style="margin-left: 10px">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

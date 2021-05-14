@@ -1,10 +1,13 @@
 package com.example.skillstracker.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "associate")
 public class Associate {
     @Id
+    @Column(name = "associate_id")
     private Integer associateId;
     @Column(name = "associate_name")
     private String associateName;
@@ -12,19 +15,20 @@ public class Associate {
     private String emailId;
     @Column(name = "mobile_number")
     private String mobileNumber;
-    @OneToOne(cascade= CascadeType.ALL)
-    @JoinColumn(name="associateId")
-    private Skill skill;
-    public Associate() {
-        super();
-    }
+    @ManyToMany
+    @Column(name="skills")
+    private List<Skill> skills;
 
-    public Associate(Integer associateId, String associateName, String emailId, String mobileNumber) {
+    public Associate() {super();}
+
+    public Associate(Integer associateId, String associateName, String emailId, String mobileNumber, List<Skill> skills) {
         this.associateId = associateId;
         this.associateName = associateName;
         this.emailId = emailId;
         this.mobileNumber = mobileNumber;
+        this.skills = skills;
     }
+
 
     public Integer getAssociateId() {
         return associateId;
@@ -34,12 +38,12 @@ public class Associate {
         this.associateId = associateId;
     }
 
-    public Skill getSkill() {
-        return skill;
+    public List<Skill> getSkills() {
+        return skills;
     }
 
-    public void setSkill(Skill skill) {
-        this.skill = skill;
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 
     public String getAssociateName() {return associateName;}
